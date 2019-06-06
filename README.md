@@ -2,15 +2,20 @@
 *A Slack chatbot for the 2019 Clark Summer Research Program*
 
 ## Usage
-
 ### Commands
+Type `/clarkbot-help` in Slack for information on commands.
 
-#### motivate
-```
-/clarkbot motivate
-```
+Optionally, see the [usage documentation](https://williecubed.github.io/clarkbot)
+for how to interact with Clarkbot.
 
-This will generate a response with a random motivational message.
+### Direct Interface
+All requests should be routed to the base function URL:
+`https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot`
+
+To access a specific function/command, append its name to the base URL.
+
+For example:
+`https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot/motivate`
 
 ### First-time installation
 **Only for those installing this in a Slack workspace; end users don't have to do this.**
@@ -21,6 +26,7 @@ Next, create a Slash Command, and use the following URL as the request URL:
 https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot
 
 TODO: Finish installation instructions
+
 
 ## Project Structure
 This chatbot uses various online APIs and services, including:
@@ -38,7 +44,8 @@ This project uses the following Python packages:
  - [flask](flask.pocoo.org), a micro web framework
 
 To install all at once, use pip:
-```pip3 install -r requirements.txt
+```
+pip3 install -r requirements.txt
 ```
 
 Optionally, use a Python virtual environment to isolate your dependencies.
