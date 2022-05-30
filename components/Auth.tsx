@@ -14,7 +14,8 @@ export default function Auth() {
         throw error;
       }
     } catch (error) {
-      alert(error.error_description || error.message);
+      console.error(error);
+      alert(error);
     } finally {
       setLoading(false);
     }

@@ -1,7 +1,12 @@
+import { Session } from "@supabase/supabase-js";
 import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase-client";
 
-export default function Account({ session }) {
+interface AccountInfoProps {
+  session: Session;
+}
+
+export default function AccountInfo({ session }: AccountInfoProps) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
@@ -18,7 +23,7 @@ export default function Account({ session }) {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`username, website, avatar_url`)
-        .eq("id", user.id)
+        .eq("id", user!.id) // TODO: Fix this code smell
         .single();
 
       if (error && status !== 406) {
@@ -29,7 +34,8 @@ export default function Account({ session }) {
         setAvatarUrl(data.avatar_url);
       }
     } catch (error) {
-      alert(error.message);
+      alert(error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -42,7 +48,12 @@ export default function Account({ session }) {
         <label className="mr-2" htmlFor="email">
           Email:
         </label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input
+          id="email"
+          type="text"
+          value={session.user?.email ?? ""}
+          disabled
+        />
       </div>
 
       <div>

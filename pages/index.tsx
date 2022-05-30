@@ -35,13 +35,7 @@ const HomePage: NextPage = () => {
         Clark Point Tracker
       </header>
       <main className="min-h-[80vh] lg:mx-auto max-w-xl">
-        <div>
-          {!session ? (
-            <Auth />
-          ) : (
-            <AccountInfo key={session.user.id} session={session} />
-          )}
-        </div>
+        <div>{!session ? <Auth /> : <AccountInfo session={session} />}</div>
         <PointsTable records={records} />
       </main>
       <SiteFooter />
