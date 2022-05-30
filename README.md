@@ -1,70 +1,34 @@
-# Clarkbot
-*A Slack chatbot for the 2019 Clark Summer Research Program*
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Usage
-### Commands
-Type `/clarkbot-help` in Slack for information on commands.
+## Getting Started
 
-Optionally, see the [usage documentation](https://williecubed.github.io/clarkbot)
-for how to interact with Clarkbot.
+First, run the development server:
 
-### Direct Interface
-All requests should be routed to the base function URL:
-`https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot`
-
-To access a specific function/command, append its name to the base URL.
-
-For example:
-`https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot/motivate`
-
-### First-time installation
-**Only for those installing this in a Slack workspace; end users don't have to do this.**
-To authorize Clarkbot to do Clarkbot's work, first create a new Slack app for
-your workspace.
-
-Next, create a Slash Command, and use the following URL as the request URL:
-https://us-central1-willie-personal-projects.cloudfunctions.net/clarkbot
-
-TODO: Finish installation instructions
-
-
-## Project Structure
-This chatbot uses various online APIs and services, including:
- - [Google Cloud Functions](https://cloud.google.com/functions/docs/)
- - [Slack Slash Command API](https://api.slack.com/slash-commands)
- - [Slack Bot User API](https://api.slack.com/bot-users)
- - [Google Natural Language API](https://cloud.google.com/natural-language/docs)
- - [They Said So Quotes API](https://theysaidso.com/api/)
- - [Google Maps Places API](https://developers.google.com/places/web-service/intro)
-
-In addition, this project uses [GitHub Pages](https://github.com/) for usage documentation.
-
-## Development
-This project uses the following Python packages:
- - [flask](flask.pocoo.org), a micro web framework
-
-To install all at once, use pip:
-```
-pip3 install -r requirements.txt
-```
-
-Optionally, use a Python virtual environment to isolate your dependencies.
-
-In a bash terminal:
 ```bash
-python3 -m venv env/ # Install Python virtual environment creator
-source env/bin/activate # Activate the virtual environment
-pip3 install -r requirements.txt
+npm run dev
+# or
+yarn dev
 ```
 
-For developers:
-When adding a new package, make sure to add it and freeze the dependencies:
-```bash
-pip3 freeze > requirements.txt
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## License
-This project uses the MIT license.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-TL;DR: Do what you want, but just keep the copyright notice unless you create a derivative.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
