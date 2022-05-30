@@ -5,6 +5,8 @@ import { useSupabase } from "../lib/hooks/supabase";
 import PointsTable from "../components/PointsTable";
 import testData from "../lib/data/test.json";
 import SiteFooter from "../components/SiteFooter";
+import AccountInfo from "../components/AccountInfo";
+import Auth from "../components/Auth";
 
 const HomePage: NextPage = () => {
   const session = useSupabase();
@@ -19,7 +21,6 @@ const HomePage: NextPage = () => {
     }
   );
 
-const Home: NextPage = () => {
   return (
     <>
       <Head>
@@ -34,6 +35,13 @@ const Home: NextPage = () => {
         Clark Point Tracker
       </header>
       <main className="min-h-[80vh] lg:mx-auto max-w-xl">
+        <div>
+          {!session ? (
+            <Auth />
+          ) : (
+            <AccountInfo key={session.user.id} session={session} />
+          )}
+        </div>
         <PointsTable records={records} />
       </main>
       <SiteFooter />
