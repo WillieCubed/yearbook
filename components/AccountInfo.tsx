@@ -1,5 +1,6 @@
 import { Session } from "@supabase/supabase-js";
 import { useState, useEffect } from "react";
+import { useAuth } from "../lib/auth";
 import { supabase } from "../lib/supabase-client";
 
 interface AccountInfoProps {
@@ -9,7 +10,7 @@ interface AccountInfoProps {
 export default function AccountInfo({ session }: AccountInfoProps) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
-  const [avatar_url, setAvatarUrl] = useState(null);
+  const [avatarUrl, setAvatarUrl] = useState(null);
 
   useEffect(() => {
     getProfile();
@@ -40,6 +41,8 @@ export default function AccountInfo({ session }: AccountInfoProps) {
       setLoading(false);
     }
   }
+
+  const { user, signIn, signOut } = useAuth();
 
   return (
     <div className="p-4 text-center">

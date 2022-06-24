@@ -1,18 +1,15 @@
 import { useState } from "react";
-import { supabase } from "../lib/supabase-client";
+import { useAuth } from "../lib/auth";
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
+  const { signIn } = useAuth();
 
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({
-        provider: "discord",
-      });
-      if (error) {
-        throw error;
-      }
+      const { user, session } = await signIn();
+      console.log(user, session);
     } catch (error) {
       console.error(error);
       alert(error);

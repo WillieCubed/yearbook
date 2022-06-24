@@ -1,3 +1,5 @@
+import { supabase } from "./supabase-client";
+
 /**
  * One instance of points being awarded.
  */
@@ -10,7 +12,7 @@ export type PointAwardRecord = {
   /**
    * The house that receives the points of the awardee.
    */
-  houseRecipient: string;
+  recipientHouse: string;
 
   /**
    * Can be negative.
@@ -27,3 +29,11 @@ export type PointAwardRecord = {
    */
   reason: string;
 };
+
+const TABLE_NAME_POINT_RECORDS = "PointRecords";
+
+async function getPoints() {
+  const { data, error } = await supabase.from(TABLE_NAME_POINT_RECORDS);
+  console.log(data);
+  return;
+}

@@ -23,7 +23,7 @@ function TableHeader() {
 
 function PointsEntry({
   awardee,
-  houseRecipient: houseRecipeient,
+  recipientHouse: houseRecipeient,
   points,
   timestamp,
 }: PointAwardRecord) {
@@ -46,15 +46,16 @@ interface PointsTableProps {
  * A table that displays a list of instances of points being earned.
  */
 export default function PointsTable({ records }: PointsTableProps) {
-  const rows = records
-    .sort((record1, record2) => {
-      return record1.timestamp.getTime() > record2.timestamp.getTime() ? 1 : -1;
-    })
-    .map((record) => {
-      return <PointsEntry key={record.timestamp.toISOString()} {...record} />;
-    });
+  const sortedRecords = records.sort((record1, record2) => {
+    return record1.timestamp.getTime() > record2.timestamp.getTime() ? 1 : -1;
+  });
+  const rows = sortedRecords.map((record) => {
+    return <PointsEntry key={record.timestamp.toISOString()} {...record} />;
+  });
 
-  const lastTime = new Date();
+  // TODO: Fetch timestamp from server because this is giving issues
+  // const lastTime = new Date();
+  const lastTime = sortedRecords[sortedRecords.length - 1].timestamp;
 
   return (
     <table className="text-lg shadow-md rounded-lg bg-white dark:bg-gray-700 table-auto">

@@ -7,6 +7,7 @@ import testData from "../lib/data/test.json";
 import SiteFooter from "../components/SiteFooter";
 import AccountInfo from "../components/AccountInfo";
 import Auth from "../components/Auth";
+import Link from "next/link";
 
 const HomePage: NextPage = () => {
   const session = useSupabase();
@@ -35,6 +36,15 @@ const HomePage: NextPage = () => {
         Clark Point Tracker
       </header>
       <main className="min-h-[80vh] lg:mx-auto max-w-xl">
+        <div className="p-8">
+          <div className="flex justify-center">
+            <Link href="/wrapped" passHref>
+              <a className="font-bold text-2xl text-blue-400 hover:text-blue-600 transition-colors ease-in-out">
+                Clark 2022 Midterm Wrap
+              </a>
+            </Link>
+          </div>
+        </div>
         <div>{!session ? <Auth /> : <AccountInfo session={session} />}</div>
         <PointsTable records={records} />
       </main>
