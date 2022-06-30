@@ -48,5 +48,6 @@ export function useAuth() {
     isSignedIn,
     signIn: signInWithDiscord,
     signOut,
+    user: userData,
   };
 }
