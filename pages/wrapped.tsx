@@ -57,6 +57,15 @@ export const getServerSideProps: GetServerSideProps<WrappedPageParams> = async (
   context
 ) => {
   try {
+    const SCOPES = [];
+    const GOOGLE_PHOTOS_ALBUMS_ENDPOINT =
+      "https://photoslibrary.googleapis.com/v1/albums";
+    const result = await fetch(GOOGLE_PHOTOS_ALBUMS_ENDPOINT, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${process.env.GOOGLE_API_KEY}`,
+      },
+    });
     const photos: Photo[] = [];
     return {
       props: {
