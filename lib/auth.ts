@@ -51,3 +51,9 @@ export function useAuth() {
     user: userData,
   };
 }
+
+export type TokensData = {
+  access_token: string;
+  refresh_token: string;
+  expiry_date: number;
+};
