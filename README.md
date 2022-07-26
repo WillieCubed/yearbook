@@ -20,6 +20,14 @@ npm run dev
 yarn dev
 ```
 
+Make sure you install the Git hooks for Prettier:
+
+```shell
+npx husky install
+npm set-script prepare "husky install"
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+
 TODO: Include information on Supabase
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
