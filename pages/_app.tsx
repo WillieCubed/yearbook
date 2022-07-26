@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import "@fontsource/work-sans";
 
 function PointsApp({ Component, pageProps }: AppProps) {
   return (
