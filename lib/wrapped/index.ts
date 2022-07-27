@@ -1,27 +1,63 @@
-type TextMemory = {};
-type ImageMemory = {};
-type ScrapbookMemory = {};
-type HighlightMemory = {};
-type EncouragementMemory = {};
-type UpcomingMemory = {};
-type CollabMemory = {};
+export type TextMemory = {
+  title: string;
+  description: string;
+  type: "text";
+};
+
+type ImageData = {
+  height: string;
+  width: string;
+};
+
+export type ImageMemory = {
+  imageUrl: string;
+  caption: string;
+  type: "image";
+};
+
+export type VideoMemory = {
+  videoUrl: string;
+  type: "video";
+};
+
+export type ScrapbookMemory = {
+  images: string[];
+  title: string;
+  type: "scrapbook";
+};
+
+export type HighlightMemory = {
+  type: "highlight";
+};
+
+export type EncouragementMemory = {
+  type: "encouragement";
+};
+
+export type CollabMemory = {
+  type: "collab";
+};
 
 export type Memory =
   | TextMemory
   | ImageMemory
+  | VideoMemory
   | ScrapbookMemory
   | HighlightMemory
   | EncouragementMemory
-  | UpcomingMemory
   | CollabMemory;
 
-type BaseStatistic = {};
-
-export type ProgramStatistic = BaseStatistic & {
-  title: string;
-  description: string;
-  value: number | string;
+type BaseStatistic = {
+  id: string;
 };
+
+export type ProgramStatistic =
+  | BaseStatistic
+  | (BaseStatistic & {
+      title: string;
+      description: string;
+      value: number | string;
+    });
 
 /**
  * A wrapper for memories to be rendered by the client.

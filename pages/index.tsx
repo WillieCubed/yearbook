@@ -24,9 +24,16 @@ const HomePage: NextPage = () => {
               Let's wrap this up.
             </div>
             <div className="mt-12">
-              <Link href="/wrapped">
+              <Link href="/wrapped?customized=1">
                 <a className="inline-block mx-auto p-4 font-bold text-xl text-primary text-center rounded-lg border-4 border-primary hover:bg-primary hover:text-gray-800 hover:transition-all focus:bg-primary focus:text-gray-800 focus:transition-all ease-in-out duration-300">
-                  Enter Clark Wrapped
+                  My Wrapped
+                </a>
+              </Link>
+            </div>
+            <div className="mt-4">
+              <Link href="/wrapped">
+                <a className="inline-block mx-auto p-4 font-bold text-lg text-secondary text-center rounded-lg hover:bg-secondary hover:text-gray-800 hover:transition-all focus:bg-secondary focus:text-gray-800 focus:transition-all ease-in-out duration-300 opacity-80">
+                  Wrapped Without Discord
                 </a>
               </Link>
             </div>
