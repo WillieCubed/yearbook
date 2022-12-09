@@ -8,8 +8,8 @@ interface ScrapbookStoryProps {
 export default function ScrapbookStory({ memory, index }: ScrapbookStoryProps) {
   const imageBlocks = memory.images.map((url) => {
     return (
-      <div className="object-cover">
-        <img className="object-fill" key={`story-${index}`} src={url} />
+      <div className="object-cover" key={`story-${index}`}>
+        <img className="object-fill" src={url} />
       </div>
     );
   });

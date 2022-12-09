@@ -21,7 +21,7 @@ const HomePage: NextPage = () => {
               It&apos;s been a fun summer.
             </div>
             <div className="mx-auto mt-8 font-semibold font-display text-4xl lg:text-5xl text-center">
-              Let's wrap this up.
+              Let&apos;s wrap this up.
             </div>
             <div className="mt-12">
               <Link href="/wrapped?customized=1">
