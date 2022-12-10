@@ -21,7 +21,11 @@ export default function AccountInfo({ session }: AccountInfoProps) {
       setLoading(true);
       const { data } = await supabase.auth.getUser();
 
-      let { data: databaseData, error, status } = await supabase
+      let {
+        data: databaseData,
+        error,
+        status,
+      } = await supabase
         .from("profiles")
         .select(`username, website, avatar_url`)
         .eq("id", data.user?.id) // TODO: Fix this code smell

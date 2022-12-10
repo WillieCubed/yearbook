@@ -20,7 +20,7 @@ export function useSupabase() {
   useEffect(() => {
     getSession().then(({ data }) => {
       setSession(data.session);
-    })
+    });
     const { data } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });

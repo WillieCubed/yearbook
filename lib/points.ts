@@ -33,7 +33,9 @@ export type PointAwardRecord = {
 const TABLE_NAME_POINT_RECORDS = "PointRecords";
 
 async function getPoints() {
-  const { data, error } = await supabase.from(TABLE_NAME_POINT_RECORDS).select("*");
+  const { data, error } = await supabase
+    .from(TABLE_NAME_POINT_RECORDS)
+    .select("*");
   console.log(data);
   return;
 }
