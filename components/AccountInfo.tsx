@@ -19,20 +19,20 @@ export default function AccountInfo({ session }: AccountInfoProps) {
   async function getProfile() {
     try {
       setLoading(true);
-      const user = supabase.auth.user();
+      const { data } = await supabase.auth.getUser();
 
-      let { data, error, status } = await supabase
+      let { data: databaseData, error, status } = await supabase
         .from("profiles")
         .select(`username, website, avatar_url`)
-        .eq("id", user!.id) // TODO: Fix this code smell
+        .eq("id", data.user?.id) // TODO: Fix this code smell
         .single();
 
       if (error && status !== 406) {
         throw error;
       }
 
-      if (data) {
-        setAvatarUrl(data.avatar_url);
+      if (databaseData) {
+        setAvatarUrl(databaseData.avatar_url);
       }
     } catch (error) {
       alert(error);

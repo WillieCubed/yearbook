@@ -13,13 +13,19 @@ import { supabase } from "../supabase-client";
 export function useSupabase() {
   const [session, setSession] = useState<Session | null>(null);
 
+  async function getSession() {
+    return await supabase.auth.getSession();
+  }
+
   useEffect(() => {
-    setSession(supabase.auth.session());
+    getSession().then(({ data }) => {
+      setSession(data.session);
+    })
     const { data } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
-    return data?.unsubscribe;
+    return data?.subscription.unsubscribe();
   }, []);
 
   return session;
