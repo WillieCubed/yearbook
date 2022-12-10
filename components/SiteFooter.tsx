@@ -6,7 +6,7 @@ export default function SiteFooter() {
     <footer className="bottom-0 relative p-4 text-center font-bold font-display bg-slate-200 dark:bg-slate-800">
       <a
         className="text-primary hover:text-blue-600 dark:hover:text-blue-200 focus:text-blue-600 dark:focus:text-blue-200 transition ease-in-out duration-200"
-        href="https://github.com/WillieCubed/clark-dashboard"
+        href="https://github.com/WillieCubed/yearbook"
       >
         Built
       </a>{" "}
