@@ -9,28 +9,18 @@ import SiteFooter from "../../components/SiteFooter";
 export default function LandingPage() {
   return (
     <div className="w-screen h-screen flex flex-col">
-      <main className="p-4 lg:p-8 flex-1 dark:bg-gray-900 lg:mx-auto max-w-4xl grid place-content-center scrollbar scrollbar-track-gray-700 scrollbar-thumb-gray-600">
-        <div className="text-center">
-          <div className="mx-auto font-bold font-display text-5xl lg:text-6xl text-center">
-            It&apos;s been a fun year.
+      <main className="w-full flex-1 p-4 lg:p-8 dark:bg-[#333333]">
+        <section className="w-full h-full lg:mx-auto max-w-4xl max-h-[66%] flex flex-col justify-between">
+          <div className="space-y-8">
+            <div className="mt-16 lg:mt-32 font-display font-bold text-7xl">
+              Your UTD in review.
+            </div>
+            <div className="font-display font-bold text-5xl">
+              Coming this May.
+            </div>
           </div>
-          <div className="mx-auto mt-8 font-semibold font-display text-4xl lg:text-5xl text-center">
-            Let&apos;s wrap this up.
-          </div>
-          <div className="mt-12">
-            <Link
-              href="/wrapped?customized=1"
-              className="block mx-auto p-4 font-bold text-xl text-primary text-center rounded-lg border-4 border-primary hover:bg-primary hover:text-gray-800 hover:transition-all focus:bg-primary focus:text-gray-800 focus:transition-all ease-in-out duration-300"
-            >
-              My Wrapped
-            </Link>
-          </div>
-          {/* <div className="mt-4">
-            <Link href="/wrapped" className="block mx-auto p-4 font-bold text-lg text-secondary text-center rounded-lg hover:bg-secondary hover:text-gray-800 hover:transition-all focus:bg-secondary focus:text-gray-800 focus:transition-all ease-in-out duration-300 opacity-80">
-              Wrapped Without Discord
-            </Link>
-          </div> */}
-        </div>
+          <div className="font-display font-semibold text-3xl hover:cursor-pointer hover:text-blue-400 underline transition" title="Ha, did you really think I was that far along in this project?">Sign up for waitlist.</div>
+        </section>
       </main>
       <SiteFooter />
     </div>
