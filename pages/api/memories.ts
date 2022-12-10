@@ -54,7 +54,7 @@ export async function getMemories(
     }
     const media = await fetchMedia(ALBUM_ID);
 
-    const urls = media.map(({ baseUrl, mediaMetadata }) => {
+    const urls = (media ?? []).map(({ baseUrl, mediaMetadata }) => {
       const { height, width } = mediaMetadata;
       return getRealImageUrl(baseUrl, width, height);
     });
