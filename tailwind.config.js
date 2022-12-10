@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: [
-        "Work Sans",
+        "Inter",
         "-apple-system",
         "BlinkMacSystemFont",
         "Segoe UI",
