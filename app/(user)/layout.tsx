@@ -1,5 +1,5 @@
 import "@fontsource/inter";
-import "../../styles/globals.css";
+import "../globals.css";
 
 export default function DashboardLayout({
   children, // will be a page or nested layout
