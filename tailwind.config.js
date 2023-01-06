@@ -40,7 +40,9 @@ module.exports = {
     },
     extend: {
       dropShadow: {
-        'pop': '16px 16px #000000',
+        'pop': '8px 8px #000000',
+        'pop-1': '16px 16px #000000',
+        'pop-2': '24px 24px #000000',
       },
       colors: {
         primary: "#9BD1E5",
