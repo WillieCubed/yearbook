@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -25,6 +25,7 @@
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
     "husky": "^8.0.2",
