@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: [
+        'var(--font-display)',
         "Inter",
         "-apple-system",
         "BlinkMacSystemFont",
@@ -22,6 +23,7 @@ module.exports = {
         "Segoe UI Symbol",
       ],
       sans: [
+        'var(--font-sans)',
         "-apple-system",
         "BlinkMacSystemFont",
         "Segoe UI",
