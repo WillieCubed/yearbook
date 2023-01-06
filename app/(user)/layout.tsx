@@ -1,13 +1,10 @@
-import "@fontsource/inter";
-import "../globals.css";
-
-export default function DashboardLayout({
+export default function MainLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="dark:bg-slate-900 dark:text-slate-100">
+    <div className="">
       {/* TODO: Include shared UI here e.g. a header or sidebar */}
       {children}
     </div>
