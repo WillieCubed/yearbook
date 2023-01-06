@@ -1,4 +1,3 @@
-import Link from "next/link";
 import SiteFooter from "../../components/SiteFooter";
 
 /**
@@ -19,7 +18,7 @@ export default function LandingPage() {
               Coming this May.
             </div>
           </div>
-          <div className="font-display font-semibold text-3xl hover:cursor-pointer hover:text-blue-400 underline transition" title="Ha, did you really think I was that far along in this project?">Sign up for waitlist.</div>
+          <a className="font-display font-semibold text-3xl hover:cursor-pointer hover:text-blue-400 underline transition ease-in-out duration-200" title="Ha, did you really think I was that far along in this project?" href={process.env.WAITLIST_FORM}>Sign up for waitlist</a>
         </section>
       </main>
       <SiteFooter />
