@@ -5,11 +5,13 @@ export default function Head({ params }: { params: { slug: string } }) {
     "https://utdwrapped.vercel.app";
   return (
     <>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Yearbook</title>
       <meta
         name="description"
         content="Review what happened in your past year at UTD."
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <meta property="og:title" content="Year in UTD" />
       <meta property="og:type" content="website" />
