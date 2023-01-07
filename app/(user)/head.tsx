@@ -6,14 +6,14 @@ export default function Head({ params }: { params: { slug: string } }) {
   return (
     <>
       <meta charSet="utf-8" />
-      <title>Yearbook</title>
+      <title>UTD Wrapped - Coming soon!</title>
       <meta
         name="description"
         content="Review what happened in your past year at UTD."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <meta property="og:title" content="Year in UTD" />
+      <meta property="og:title" content="UTD Wrapped" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={baseUrl} />
       <meta property="og:image" content={`${baseUrl}/assets/meta/index.png`} />
