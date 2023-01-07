@@ -13,6 +13,8 @@ export default function Head({ params }: { params: { slug: string } }) {
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+      <link rel="icon" href="/site-icon.svg" type="image/svg+xml" />
+
       <meta property="og:title" content="UTD Wrapped" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={baseUrl} />
