@@ -5,7 +5,7 @@ export default function Head({ params }: { params: { slug: string } }) {
     "https://utdwrapped.vercel.app";
   return (
     <>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="utf-8" />
       <title>Yearbook</title>
       <meta
         name="description"
