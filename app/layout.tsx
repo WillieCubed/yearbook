@@ -1,12 +1,12 @@
-import React from 'react';
-import { Be_Vietnam_Pro } from '@next/font/google';
+import React from "react";
+import { Be_Vietnam_Pro } from "@next/font/google";
 import "./globals.css";
 
 const displayFont = Be_Vietnam_Pro({
-  weight: ['500', '700'],
-  subsets: ['latin'],
-  display: 'auto',
-  variable: '--font-display',
+  weight: ["500", "700"],
+  subsets: ["latin"],
+  display: "auto",
+  variable: "--font-display",
 });
 
 export default function RootLayout({ children }: React.PropsWithChildren) {

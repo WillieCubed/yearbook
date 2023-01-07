@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: [
-        'var(--font-display)',
+        "var(--font-display)",
         "Inter",
         "-apple-system",
         "BlinkMacSystemFont",
@@ -23,7 +23,7 @@ module.exports = {
         "Segoe UI Symbol",
       ],
       sans: [
-        'var(--font-sans)',
+        "var(--font-sans)",
         "-apple-system",
         "BlinkMacSystemFont",
         "Segoe UI",
@@ -40,9 +40,9 @@ module.exports = {
     },
     extend: {
       dropShadow: {
-        'pop': '8px 8px #000000',
-        'pop-1': '16px 16px #000000',
-        'pop-2': '24px 24px #000000',
+        pop: "8px 8px #000000",
+        "pop-1": "16px 16px #000000",
+        "pop-2": "24px 24px #000000",
       },
       colors: {
         primary: "#9BD1E5",
