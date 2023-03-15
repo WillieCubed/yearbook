@@ -5,7 +5,7 @@ import { Popover } from "@headlessui/react";
 
 interface NavItemProps {
   slug: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 
 function NavItem({
@@ -34,13 +34,13 @@ export default function SideNavigationBar({}: SideNavigationBarProps) {
   return (
     <div className="flex-none md:w-[320px] bg-white dark:bg-neutral-800 dark:text-white border-slate-800 dark:border-r-neutral-700 border-2">
       <div>
-        <NavItem slug="/admin/yearbook/content">Content</NavItem>
-        <NavItem slug="/admin/yearbook/wrapped">Wrapped</NavItem>
-        <NavItem slug="/admin/yearbook/credits">Credits</NavItem>
-        <NavItem slug="/admin/yearbook/users">Users</NavItem>
+        <NavItem slug="/admin/yearbook/content" icon={<></>}>Content</NavItem>
+        <NavItem slug="/admin/yearbook/wrapped" icon={<></>}>Wrapped</NavItem>
+        <NavItem slug="/admin/yearbook/credits" icon={<></>}>Credits</NavItem>
+        <NavItem slug="/admin/yearbook/users" icon={<></>}>Users</NavItem>
       </div>
       <div>
-        <NavItem slug="/admin/yearbook/settings">Settings</NavItem>
+        <NavItem slug="/admin/yearbook/settings" icon={<></>}>Settings</NavItem>
       </div>
     </div>
   );
