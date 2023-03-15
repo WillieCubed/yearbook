@@ -30,9 +30,7 @@ interface SideNavigationBarProps {
   // TODO: Only enable Wrapped after admin onboarding is complete
 }
 
-export default function SideNavigationBar({
-  disabledComponents,
-}: SideNavigationBarProps) {
+export default function SideNavigationBar({}: SideNavigationBarProps) {
   return (
     <div className="flex-none md:w-[320px] bg-white dark:bg-neutral-800 dark:text-white border-slate-800 dark:border-r-neutral-700 border-2">
       <div>
