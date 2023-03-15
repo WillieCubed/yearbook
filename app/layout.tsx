@@ -1,5 +1,5 @@
 import React from "react";
-import { Be_Vietnam_Pro } from "@next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 
 const displayFont = Be_Vietnam_Pro({
