@@ -70,6 +70,7 @@ function YearbookProjectSelectorPopover({
     <div className="w-[320px] py-2 rounded-lg bg-white dark:bg-slate-900">
       {editions.map(({ id, title }) => (
         <Link
+          key={id}
           className="block px-4 py-2 hover:bg-slate-800 transition ease-in"
           href={`/admin/yearbook/${id}`}
           onClick={() => onSelect(id)}
