@@ -3,6 +3,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment } from "react";
+import { YearbookInfo } from "../../lib/yearbook";
 
 interface YearbookProjectSelectorProps {
   onSelect: (yearbookId: string) => void;
@@ -11,7 +12,7 @@ interface YearbookProjectSelectorProps {
 export default function YearbookProjectSelector({
   onSelect,
 }: YearbookProjectSelectorProps) {
-  const handleSelection = (yearbookId: string | null, closeFn) => {
+  const handleSelection = (yearbookId: string | null, closeFn: () => void) => {
     if (yearbookId) {
       onSelect(yearbookId);
       // TODO: Close thing
