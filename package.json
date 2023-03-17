@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "prebuild": "supabase gen types typescript --linked --schema public > lib/supabase.types.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
