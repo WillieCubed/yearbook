@@ -37,7 +37,7 @@ export default function DashboardHeader() {
         ); // TODO: Fix this code smell
         setYearbooks(yearbooks);
       });
-  }, []);
+  }, [supabase]);
   // TODO: Make this mobile responsive
 
   const handleSelection = (yearbookId: string) => {

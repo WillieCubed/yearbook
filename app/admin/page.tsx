@@ -1,5 +1,20 @@
-export default function AdminPage() {
+import YearbookVolumeSelector from "../../components/common/YearbookVolumeSelector";
+import { createClient } from "../../lib/supabase-server";
+import { Database } from "../../lib/supabase.types";
+import { YearbookInfo } from "../../lib/yearbook";
+
+export default async function AdminPage() {
   // TODO: If Yearbook volume stored in local storage, simply redirect
+  const supabase = createClient();
+
+  // TODO: Only select yearbooks from current owner
+  const { data, error } = await supabase.from("yearbooks").select("*");
+  if (error) {
+    throw new Error();
+  }
+
+  const yearbooks = data.map(mapTableToYearbook);
+
   return (
     <div>
       <section className="p-8 max-w-5xl">
@@ -10,19 +25,26 @@ export default function AdminPage() {
           <div>Filter by</div>
           <div>(icon)</div>
         </div>
+        <YearbookVolumeSelector mode={"list"} yearbooks={yearbooks} />
       </section>
     </div>
   );
 }
 
-interface YearbookVolumeSelectorProps {
-  mode: "list" | "grid";
-}
+type DBYearbook = Database["public"]["Tables"]["yearbooks"]["Row"];
 
-function YearbookVolumeSelector({ mode }: YearbookVolumeSelectorProps) {
-  return (
-    <div>
-      {/* TODO: Display all yearbook volumes that user has access to */}
-    </div>
-  );
+function mapTableToYearbook({
+  id,
+  title,
+  thumbnail_url,
+  created_at,
+  owner,
+}: DBYearbook): YearbookInfo {
+  return {
+    id: id,
+    title: title,
+    thumbnailUrl: thumbnail_url,
+    createdAt: created_at,
+    owner: owner,
+  };
 }
