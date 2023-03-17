@@ -87,6 +87,7 @@ function YearbookProjectSelectorPopover({
       <Link
         className="block px-4 py-1 hover:bg-neutral-100 focus:bg-neutral-200 dark:hover:bg-slate-800 dark:focus:bg-slate-800 transition ease-in text-blue-500"
         href="/admin/yearbook"
+        onClick={() => onSelect(null)}
       >
         See all yearbooks
       </Link>
