@@ -1,16 +1,20 @@
 "use client";
 
 import { Popover, Transition } from "@headlessui/react";
+import { Route } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
+import ArrowDropDown from "../../assets/icons/ArrowDropDown";
 import { YearbookInfo } from "../../lib/yearbook";
 
 interface YearbookProjectSelectorProps {
   onSelect: (yearbookId: string) => void;
+  yearbooks: YearbookInfo[];
 }
 
 export default function YearbookProjectSelector({
   onSelect,
+  yearbooks,
 }: YearbookProjectSelectorProps) {
   const handleSelection = (yearbookId: string | null, closeFn: () => void) => {
     if (yearbookId) {
@@ -24,9 +28,14 @@ export default function YearbookProjectSelector({
     <Popover className="relative p-2 bg-neutral-3 rounded-md">
       {({ open }) => (
         <>
-          <Popover.Button className="p-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-700 focus:bg-neutral-700 rounded-md">
+          <Popover.Button className="flex p-2 space-x-2 bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 rounded-md transition ease-in-out">
             {/* TODO: Use selection from local storage */}
             <div>Select edition</div>
+            <div>
+              <ArrowDropDown
+                className={`transition ease-in ${open ? "rotate-180" : ""}`}
+              />
+            </div>
           </Popover.Button>
           <Transition
             as={Fragment}
@@ -37,16 +46,10 @@ export default function YearbookProjectSelector({
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="my-2 absolute z-10">
+            <Popover.Panel className="my-2 absolute shadow-lg z-10 rounded-md">
               {({ close }) => (
                 <YearbookProjectSelectorPopover
-                  editions={[
-                    {
-                      id: "2023",
-                      title: "UTD 2022-2023",
-                      imageUrl: "https://picsum/160/90",
-                    },
-                  ]}
+                  editions={yearbooks}
                   onSelect={(yearbookId) => handleSelection(yearbookId, close)}
                 />
               )}
@@ -72,7 +75,7 @@ function YearbookProjectSelectorPopover({
       {editions.map(({ id, title }) => (
         <Link
           key={id}
-          className="block px-4 py-2 hover:bg-slate-800 transition ease-in"
+          className="block px-4 py-2 hover:bg-neutral-100 focus:bg-neutral-200 dark:hover:bg-slate-800 dark:focus:bg-slate-800 transition ease-in"
           href={`/admin/yearbook/${id}`}
           onClick={() => onSelect(id)}
         >
@@ -80,8 +83,8 @@ function YearbookProjectSelectorPopover({
         </Link>
       ))}
       <Link
-        className="block px-4 py-1 hover:bg-slate-800 transition ease-in text-blue-500"
-        href={`/admin/yearbook/`}
+        className="block px-4 py-1 hover:bg-neutral-100 focus:bg-neutral-200 dark:hover:bg-slate-800 dark:focus:bg-slate-800 transition ease-in text-blue-500"
+        href="/admin/yearbook"
       >
         See all yearbooks
       </Link>

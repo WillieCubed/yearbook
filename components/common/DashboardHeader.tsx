@@ -15,7 +15,16 @@ export default function DashboardHeader() {
           Yearbook
         </Link>
       </div>
-      <YearbookProjectSelector onSelect={() => undefined} />
+      <YearbookProjectSelector
+        onSelect={() => undefined}
+        yearbooks={[
+          {
+            id: "2023",
+            title: "UTD 2022-2023",
+            imageUrl: "https://picsum/160/90",
+          },
+        ]}
+      />
     </header>
   );
 }

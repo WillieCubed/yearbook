@@ -59,5 +59,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("@headlessui/tailwindcss")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("@headlessui/tailwindcss"),
+    require("@tailwindcss/typography"),
+  ],
 };
