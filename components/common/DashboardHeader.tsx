@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import YearbookProjectSelector from "./YearbookProjectSelector";
 import { useSupabase } from "./SupabaseProvider";
 import type { YearbookInfo } from "../../lib/yearbook";
-import { useEffect, useState } from "react";
+import { useLocalYearbookData } from "../../lib/client/yearbook-storage";
 
 export default function DashboardHeader() {
+  const { saveSelection, loadYearbook } = useLocalYearbookData();
+
   const [yearbooks, setYearbooks] = useState<YearbookInfo[]>([]);
   const [selectedYearbook, setSelectedYearbook] = useState<YearbookInfo | null>(
-    null
+    () => loadYearbook()
   );
   const { supabase } = useSupabase();
 
@@ -38,14 +41,14 @@ export default function DashboardHeader() {
         setYearbooks(yearbooks);
       });
   }, [supabase]);
-  // TODO: Make this mobile responsive
 
   const handleSelection = (yearbookId: string) => {
-    const yearbook = yearbooks.filter(({ id }) => yearbookId)[0] ?? null;
+    const yearbook = yearbooks.filter(({ id }) => id === yearbookId)[0] ?? null;
+    saveSelection(yearbook);
     setSelectedYearbook(yearbook);
   };
 
-  // TODO: Actually handle selected project and store in local storage
+  // TODO: Make this mobile responsive
   return (
     <header className="bg-white dark:bg-neutral-900 flex space-between items-center">
       <div>

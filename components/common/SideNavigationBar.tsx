@@ -3,6 +3,7 @@
 import { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLocalYearbookData } from "../../lib/client/yearbook-storage";
 
 interface NavItemProps {
   slug: string;
@@ -37,36 +38,40 @@ interface SideNavigationBarProps {
 
 export default function SideNavigationBar({}: SideNavigationBarProps) {
   const path = usePathname();
+  const { loadYearbook } = useLocalYearbookData();
   // TODO: Use hook to get currently selected yearbook ID
+
+  const id = loadYearbook()?.id;
+  console.log(id);
 
   return (
     <div className="flex-none md:w-[320px] bg-white dark:bg-neutral-900 dark:text-white border-slate-900 dark:border-r-neutral-800 border-2">
       <div>
         <NavItem
-          slug="/admin/yearbook/content"
+          slug={id ? (`/admin/yearbook/${id}/content` as Route) : "/admin"}
           icon={<></>}
-          active={path === "/admin/yearbook/content"}
+          active={id ? path === `/admin/yearbook/${id}/content` : false}
         >
           Content
         </NavItem>
         <NavItem
-          slug="/admin/yearbook/wrapped"
+          slug={id ? (`/admin/yearbook/${id}/wrapped` as Route) : "/admin"}
           icon={<></>}
-          active={path === "/admin/yearbook/wrapped"}
+          active={id ? path === `/admin/yearbook/${id}/wrapped` : false}
         >
           Wrapped
         </NavItem>
         <NavItem
-          slug="/admin/yearbook/credits"
+          slug={id ? (`/admin/yearbook/${id}/credits` as Route) : "/admin"}
           icon={<></>}
-          active={path === "/admin/yearbook/credits"}
+          active={id ? path === `/admin/yearbook/${id}/credits` : false}
         >
           Credits
         </NavItem>
         <NavItem
-          slug="/admin/yearbook/users"
+          slug={id ? (`/admin/yearbook/${id}/users` as Route) : "/admin"}
           icon={<></>}
-          active={path === "/admin/yearbook/users"}
+          active={id ? path === `/admin/yearbook/${id}/users` : false}
         >
           Users
         </NavItem>
