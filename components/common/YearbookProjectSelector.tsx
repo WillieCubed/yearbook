@@ -10,11 +10,13 @@ import { YearbookInfo } from "../../lib/yearbook";
 interface YearbookProjectSelectorProps {
   onSelect: (yearbookId: string) => void;
   yearbooks: YearbookInfo[];
+  selected: YearbookInfo | null;
 }
 
 export default function YearbookProjectSelector({
   onSelect,
   yearbooks,
+  selected,
 }: YearbookProjectSelectorProps) {
   const handleSelection = (yearbookId: string | null, closeFn: () => void) => {
     if (yearbookId) {
@@ -30,7 +32,7 @@ export default function YearbookProjectSelector({
         <>
           <Popover.Button className="flex p-2 space-x-2 bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 rounded-md transition ease-in-out">
             {/* TODO: Use selection from local storage */}
-            <div>Select edition</div>
+            <div>{selected?.title ?? "Select edition"}</div>
             <div>
               <ArrowDropDown
                 className={`transition ease-in ${open ? "rotate-180" : ""}`}

@@ -1,10 +1,51 @@
 "use client";
 
-import YearbookProjectSelector from "./YearbookProjectSelector";
 import Link from "next/link";
+import YearbookProjectSelector from "./YearbookProjectSelector";
+import { useSupabase } from "./SupabaseProvider";
+import type { YearbookInfo } from "../../lib/yearbook";
+import { useEffect, useState } from "react";
 
 export default function DashboardHeader() {
+  const [yearbooks, setYearbooks] = useState<YearbookInfo[]>([]);
+  const [selectedYearbook, setSelectedYearbook] = useState<YearbookInfo | null>(
+    null
+  );
+  const { supabase } = useSupabase();
+
+  // TODO: Please move this to be server-side rendered
+  useEffect(() => {
+    // TODO: Get yearbooks that belong to current user
+    supabase
+      .from("yearbooks")
+      .select("*")
+      .then(({ data, error }) => {
+        if (error) {
+          // TODO: Log error
+          return [];
+        }
+        const yearbooks: YearbookInfo[] = data.map(
+          ({ id, title, thumbnail_url, created_at, owner }) => {
+            return {
+              id: id,
+              title: title,
+              thumbnailUrl: thumbnail_url,
+              createdAt: created_at,
+              owner: owner,
+            };
+          }
+        ); // TODO: Fix this code smell
+        setYearbooks(yearbooks);
+      });
+  }, []);
   // TODO: Make this mobile responsive
+
+  const handleSelection = (yearbookId: string) => {
+    const yearbook = yearbooks.filter(({ id }) => yearbookId)[0] ?? null;
+    setSelectedYearbook(yearbook);
+  };
+
+  // TODO: Actually handle selected project and store in local storage
   return (
     <header className="bg-white dark:bg-neutral-900 flex space-between items-center">
       <div>
@@ -16,14 +57,9 @@ export default function DashboardHeader() {
         </Link>
       </div>
       <YearbookProjectSelector
-        onSelect={() => undefined}
-        yearbooks={[
-          {
-            id: "2023",
-            title: "UTD 2022-2023",
-            imageUrl: "https://picsum/160/90",
-          },
-        ]}
+        onSelect={handleSelection}
+        yearbooks={yearbooks}
+        selected={selectedYearbook}
       />
     </header>
   );

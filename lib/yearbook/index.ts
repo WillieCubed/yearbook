@@ -1,5 +1,7 @@
 export type YearbookInfo = {
   id: string;
   title: string;
-  imageUrl: string;
+  thumbnailUrl: string | null;
+  createdAt: string;
+  owner: string;
 };
