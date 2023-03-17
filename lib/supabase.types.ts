@@ -52,6 +52,26 @@ export interface Database {
           title?: string;
         };
       };
+      profiles: {
+        Row: {
+          auth_id: string;
+          created_at: string | null;
+          name: string | null;
+          uid: string;
+        };
+        Insert: {
+          auth_id: string;
+          created_at?: string | null;
+          name?: string | null;
+          uid?: string;
+        };
+        Update: {
+          auth_id?: string;
+          created_at?: string | null;
+          name?: string | null;
+          uid?: string;
+        };
+      };
       question_responses: {
         Row: {
           created_at: string;
@@ -69,38 +89,20 @@ export interface Database {
           user_id?: string;
         };
       };
-      Users: {
-        Row: {
-          auth_id: string;
-          created_at: string | null;
-          name: string | null;
-          uid: string;
-        };
-        Insert: {
-          auth_id: string;
-          created_at?: string | null;
-          name?: string | null;
-          uid: string;
-        };
-        Update: {
-          auth_id?: string;
-          created_at?: string | null;
-          name?: string | null;
-          uid?: string;
-        };
-      };
       yearbooks: {
         Row: {
           created_at: string;
           id: string;
           owner: string;
+          slug: string | null;
           thumbnail_url: string | null;
           title: string;
         };
         Insert: {
           created_at?: string;
-          id: string;
+          id?: string;
           owner: string;
+          slug?: string | null;
           thumbnail_url?: string | null;
           title: string;
         };
@@ -108,6 +110,7 @@ export interface Database {
           created_at?: string;
           id?: string;
           owner?: string;
+          slug?: string | null;
           thumbnail_url?: string | null;
           title?: string;
         };
