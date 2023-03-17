@@ -1,5 +1,6 @@
 import type { Metadata } from "next/types";
 import { createClient } from "../../../lib/supabase-server";
+import styles from "../../styles.module.css";
 
 async function fetchYearbookData(yearbookSlug: string) {
   const supabase = createClient();
@@ -35,7 +36,7 @@ export default async function YearbookHome({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageMetadata) }}
       />
-      <div className="p-16 h-full bg-secondary">
+      <div className={`p-16 h-full bg-secondary ${styles["cool-background"]}`}>
         <div className="max-w-4xl mx-auto">
           <div className="p-8 md:p-16 border-4 border-black text-[#333333] bg-[#FFD23F] dark:text-white dark:bg-[#2767CE] drop-shadow-pop">
             <div className="text-4xl font-bold font-display">Yearbook!</div>

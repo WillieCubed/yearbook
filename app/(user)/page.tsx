@@ -1,4 +1,5 @@
 import SiteFooter from "../../components/SiteFooter";
+import styles from "../styles.module.css";
 
 /**
  * A landing page where one can see a brief overview to Yearbook.
@@ -8,7 +9,9 @@ import SiteFooter from "../../components/SiteFooter";
 export default function LandingPage() {
   return (
     <div className="h-screen">
-      <main className="h-full p-4 md:p-8 bg-[#3BCEAC] dark:bg-[#540D6E]">
+      <main
+        className={`h-full p-4 md:p-8 bg-[#3BCEAC] dark:bg-[#540D6E] ${styles["cool-background"]} `}
+      >
         <section className="mx-auto max-w-4xl">
           <div className="mt-16 md:mt-32 p-8 md:p-16 border-4 border-black text-[#333333] bg-[#FFD23F] dark:text-white dark:bg-[#2767CE] drop-shadow-pop">
             <div className="font-display font-bold text-5xl md:text-7xl">

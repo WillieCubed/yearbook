@@ -1,0 +1,6 @@
+.cool-background {
+  @apply -m-4;
+  /* @apply animate-[spin_300s_linear_infinite]; */
+  z-index: -1;
+  background-image: url("../public/assets/backgrounds/landing.svg");
+}
