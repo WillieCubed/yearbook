@@ -1,4 +1,5 @@
 import SiteFooter from "../../components/SiteFooter";
+import styles from "../styles.module.css";
 
 /**
  * A landing page where one can see a brief overview to Yearbook.
@@ -8,7 +9,9 @@ import SiteFooter from "../../components/SiteFooter";
 export default function LandingPage() {
   return (
     <div className="h-screen">
-      <main className="h-full p-4 md:p-8 bg-[#3BCEAC] dark:bg-[#540D6E]">
+      <main
+        className={`h-full p-4 md:p-8 bg-[#3BCEAC] dark:bg-[#540D6E] ${styles["cool-background"]} `}
+      >
         <section className="mx-auto max-w-4xl">
           <div className="mt-16 md:mt-32 p-8 md:p-16 border-4 border-black text-[#333333] bg-[#FFD23F] dark:text-white dark:bg-[#2767CE] drop-shadow-pop">
             <div className="font-display font-bold text-5xl md:text-7xl">
@@ -21,7 +24,7 @@ export default function LandingPage() {
           <a
             className="mt-[72px] md:mt-[144px] inline-block p-4 md:p-6 border-4 border-black text-[#333333] bg-[#EE4266] dark:text-white dark:bg-[#3BCEAC] drop-shadow-pop hover:-translate-x-[8px] hover:-translate-y-[8px] hover:drop-shadow-pop-1 focus:-translate-x-[8px] focus:-translate-y-[8px] focus:drop-shadow-pop-1 font-display font-semibold text-2xl md:text-3xl hover:cursor-pointer hover:text-blue-400 underline transition ease-in-out duration-200"
             title="Ha, did you really think I was that far along in this project?"
-            href={process.env.WAITLIST_FORM || '#'}
+            href={process.env.WAITLIST_FORM || "#"}
           >
             Sign up for waitlist
           </a>

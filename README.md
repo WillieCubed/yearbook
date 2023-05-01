@@ -1,13 +1,10 @@
-# Clark Dashboard
+# Yearbook
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is an interactive, personalized yearbook featuring a Spotify Wrapped-like
+recap experience and an interface that allows students to show off the cool
+things they've done.
 
-This is a dashboard that lets the Clark Summer Research Program track points for
-houses, or groups of program participants who receive points for engaging with
-the program through events, activites, and good behavior or get deducted points
-for doing not-so-good things.
-
-A live deployment can be found at [clark.williecubed.dev](clark.williecubed.dev).
+A live deployment can be found at [yearbook.williecubed.dev](yearbook.williecubed.dev).
 
 ## Getting Started
 
@@ -24,16 +21,39 @@ Make sure you install the Git hooks for Prettier:
 
 ```shell
 npx husky install
-npm set-script prepare "husky install"
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
-TODO: Include information on Supabase
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Setting up Supabase
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+npx supabase login
+npx supabase link --project-ref <SUPABASE_PROJECT_ID>
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Creating Environment Variables
+
+Create a .env.local at the root of the project:
+
+```shell
+# Not required, but can be used to customize editor used when debugging
+REACT_EDITOR=code
+# All required
+NEXT_PUBLIC_SUPABASE_URL=
+SUPABASE_SERVICE_KEY=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+### Generate Database Types
+
+From the project root, run:
+
+```shell
+npm run update-types
+```
+
+### Deployment
+
+TODO
